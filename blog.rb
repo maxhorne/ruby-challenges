@@ -10,13 +10,6 @@ class Blog
 			return @@blog_count
 		end
 
-	def set_blog_array=(date, author_name, content, title)
-		@blog_array = [date, author_name, content, title]
-	end
-
-	def get_blog_array
-		return @blog_array
-end
 
 end
 
@@ -32,6 +25,7 @@ class BlogPost < Blog
 		return @date
 	end
 
+	attr
 	def set_author_name=(author_name)
 		@author = author_name
 	end
@@ -67,7 +61,8 @@ blog1.set_title = "The First Post"
 
 
 puts blog1.inspect
-puts blog1.get_blog_array
+
+
 puts "Current blog count in #{blog1.get_blog_count}"
 
 puts "Would you like to write another blog post? Y/N"
