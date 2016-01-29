@@ -25,29 +25,17 @@ class BlogPost < Blog
 		return @date
 	end
 
-	attr
-	def set_author_name=(author_name)
-		@author = author_name
-	end
+	attr_accessor :author_name, :content, :title, :content
+	
 
-	def get_author_name
-		return @author
-	end
+	def create
+			bloghash = Hash.new { |hash, key| hash[key] =  }
+			bloghash.[:author_name] = blog.get_author_name
+			bloghash.[:date] = blog.get_date
+			bloghash.[:title] = blog.get_title
+			bloghash.[:content] = blog.get_content
+			self.initialize
 
-	def set_content=(content)
-		@content = content
-	end
-
-	def get_content
-		return @content
-	end
-
-	def set_title=(title)
-		@title = title
-	end
-
-	def get_title
-		return @title
 	end
 end
 
@@ -79,7 +67,8 @@ if response.upcase.chomp == 'Y'
 	blogx.set_content = gets
 
 puts blogx.inspect
-
+blogx.create
+puts bloghash
 else
 	puts "ok"
 end
